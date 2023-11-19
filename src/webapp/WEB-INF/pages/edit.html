@@ -104,7 +104,7 @@
 <div class="form-style-8">
     <h2>Добавить нового пользователя</h2>
 
-<form th:method="POST" th:action="@{/update(id=${user.getId()})}" th:object="${user}">
+<form th:method="PUT" th:action="@{/update(id=${user.getId()})}" th:object="${user}">
   <input type="text" th:field="*{name}" id="name" placeholder="Введите имя"/>
   <input type="text" th:field="*{tp}" id="tp" placeholder="Введите прочую информацию"/>
   <input type="submit" value="Изменить"/>

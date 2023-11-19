@@ -25,6 +25,7 @@ public class UserController {
     }
     //7. Используйте ReqestParam аннотацию, использование аннотации PathVariable запрещено
     //Кажется, в этот раз ничего не забыл.
+
     @PostMapping("/create")
     public String create(@ModelAttribute("user") User user) {
         userService.create(user);
@@ -37,13 +38,16 @@ public class UserController {
         return "edit";
     }
 
-    @PostMapping("/update")
+    //Put просто ради того чтобы оба маппинга были привязаны к настройке, которую пришлось изменить,
+    //чтобы они работали, или есть какая-то причина использовать конкретно для этого варианта обновления
+    //именно put, а не patch?
+    @PutMapping("/update")
     public String update(@ModelAttribute("user") User user, @RequestParam("id") int id) {
         userService.update(id, user);
         return "redirect:/";
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public String delete(@RequestParam("id") int id) {
         userService.delete(id);
         return "redirect:/";

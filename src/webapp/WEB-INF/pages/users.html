@@ -129,7 +129,7 @@
             <td th:text="${user.getName()}"></td>
             <td th:text="${user.getTp()}"></td>
             <td>
-                <form th:method="POST" th:action="@{/delete(id=${user.getId()})}">
+                <form th:method="DELETE" th:action="@{/delete(id=${user.getId()})}">
                     <input type="submit" value="Удалить"/>
                 </form>
             </td>
